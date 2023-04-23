@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sample.Employee.beans.EmployeeData;
-import com.sample.Employee.beans.EmployeeDataUpdate;
+import com.sample.Employee.web.*;
 import com.sample.Employee.beans.EmployeeDetails;
 
 import com.sample.Employee.service.EmployeeDetailsService;
@@ -26,30 +25,30 @@ import jakarta.validation.Valid;
 @RestController
 public class EmployeeDetailsController {
 	@Autowired
-	EmployeeDetailsService eds;
+	EmployeeDetailsService employeeDetailsService;
 	
 	
 @GetMapping("employee/{id}")
 public ResponseEntity<EmployeeDetails> getEmployeeDetails(@PathVariable String id) {
-	EmployeeDetails employeeDetails = eds.getEmployeeDetails(id);
+	EmployeeDetails employeeDetails = employeeDetailsService.getEmployeeDetails(id);
 	return new ResponseEntity<EmployeeDetails>(employeeDetails, HttpStatus.OK);
 }
 @PostMapping("employee")
-public ResponseEntity<String> createEmployeeDetails(@RequestBody @Valid EmployeeData ed){
-	EmployeeDetails data = eds.EmployeeData(ed);
-	return new ResponseEntity<>(data +"is created", HttpStatus.CREATED);
+public ResponseEntity<EmployeeDetails> createEmployeeDetails(@RequestBody @Valid CreateEmployeeDetails createEmployeeDetail){
+	EmployeeDetails employeeDetails = employeeDetailsService.createEmployeeDetail(createEmployeeDetail);
+	return new ResponseEntity<EmployeeDetails>(employeeDetails , HttpStatus.CREATED);
 	
 }
 
 @PutMapping("employee")
-public ResponseEntity<String> updateEmployeeDetails(@RequestBody @Valid EmployeeDataUpdate ed){
-	EmployeeDetails update = eds.EmployeeDataUpdate(ed);
-	return new ResponseEntity<>(update +"is update", HttpStatus.CREATED);
+public ResponseEntity<com.sample.Employee.beans.EmployeeDetails> updateEmployeeDetails(@RequestBody @Valid UpdateEmployeeDetail updateEmployeeDetail){
+	EmployeeDetails update = employeeDetailsService.upadteEmployeeDetail(updateEmployeeDetail);
+	return new ResponseEntity<EmployeeDetails>(update , HttpStatus.OK);
 	}
 
 @DeleteMapping("employee/{id}")
-public ResponseEntity<EmployeeDetails> EmployeeDetails(@PathVariable String id) {
-	eds.deleteEmployeeDetails(id);
-	return new ResponseEntity<EmployeeDetails>(HttpStatus.OK);
+public ResponseEntity<String> EmployeeDetails(@PathVariable String id) {
+	employeeDetailsService.deleteEmployeeDetails(id);
+	return new ResponseEntity<>("Employee detail is delete", HttpStatus.OK);
 }
 }

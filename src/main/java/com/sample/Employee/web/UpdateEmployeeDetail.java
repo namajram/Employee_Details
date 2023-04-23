@@ -1,16 +1,16 @@
-package com.sample.Employee.beans;
+package com.sample.Employee.web;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class EmployeeDataUpdate {
+public class UpdateEmployeeDetail {
 	
 	private String emp_id;
 	
 	@NotEmpty(message = "The employee name is required.")
 	@NotNull(message = "The employee name is required.")
-	@Size(min = 3)
+	@Size(min = 3, message = "")
 	private String emp_name;
 	
 	@NotEmpty(message = "The employee department is required.")
@@ -23,7 +23,7 @@ public class EmployeeDataUpdate {
 	
 	@NotEmpty(message = "The employee salary is required.")
 	@NotNull(message = "The employee salary is required.")
-	private String emp_salary;
+	private double emp_salary;
 	
 	@NotEmpty(message = "The employee current project is required.")
 	@NotNull(message = "The employee current project is required.")
@@ -73,12 +73,12 @@ public class EmployeeDataUpdate {
 	}
 
 
-	public String getEmp_salary() {
+	public double getEmp_salary() {
 		return emp_salary;
 	}
 
 
-	public void setEmp_salary(String emp_salary) {
+	public void setEmp_salary(double emp_salary) {
 		this.emp_salary = emp_salary;
 	}
 
@@ -103,13 +103,13 @@ public class EmployeeDataUpdate {
 	}
 
 
-	public EmployeeDataUpdate() {}
+	public UpdateEmployeeDetail() {}
 	
-	public EmployeeDataUpdate(String emp_id,
+	public UpdateEmployeeDetail(String emp_id,
 			@NotEmpty(message = "The employee name is required.") @NotNull(message = "The employee name is required.") String emp_name,
 			@NotEmpty(message = "The employee department is required.") @NotNull(message = "The employee department is required.") String emp_department,
 			@NotEmpty(message = "The employee designation is required.") @NotNull(message = "The employee designation is required.") String emp_designation,
-			@NotEmpty(message = "The employee salary is required.") @NotNull(message = "The employee salary is required.") String emp_salary,
+			@NotEmpty(message = "The employee salary is required.") @NotNull(message = "The employee salary is required.") double emp_salary,
 			@NotEmpty(message = "The employee current project is required.") @NotNull(message = "The employee current project is required.") String current_project,
 			int experience) {
 		super();

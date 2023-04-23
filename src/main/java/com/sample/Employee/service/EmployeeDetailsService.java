@@ -1,11 +1,12 @@
 package com.sample.Employee.service;
 
-import com.sample.Employee.beans.EmployeeData;
+
 import com.sample.Employee.beans.EmployeeDetails;
+import com.sample.Employee.web.*;
 
 public interface EmployeeDetailsService {
 EmployeeDetails getEmployeeDetails (String empId);
 void deleteEmployeeDetails(String empId);
-EmployeeDetails EmployeeData(EmployeeData create);
-EmployeeDetails EmployeeDataUpdate(com.sample.Employee.beans.EmployeeDataUpdate upadte);
+EmployeeDetails createEmployeeDetail(CreateEmployeeDetails createEmployeeDetails);
+EmployeeDetails upadteEmployeeDetail(UpdateEmployeeDetail updateEmployeeDetail);
 }

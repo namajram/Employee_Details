@@ -27,7 +27,7 @@ public class EmployeeDetails {
 	
 	
 	@Column(updatable = true, nullable = false)
-	private String emp_salary;
+	private double emp_salary;
 	
 
 	@Column(updatable = true, nullable = false)
@@ -43,7 +43,7 @@ public class EmployeeDetails {
 	}
 	
 	
-	public EmployeeDetails(long emp_id, String emp_name, String emp_department, String emp_designation, String emp_salary,
+	public EmployeeDetails(long emp_id, String emp_name, String emp_department, String emp_designation, double emp_salary,
 			String current_project, int experience) {
 		super();
 		this.emp_id = emp_id;
@@ -96,12 +96,12 @@ public class EmployeeDetails {
 	}
 
 
-	public String getEmp_salary() {
+	public double getEmp_salary() {
 		return emp_salary;
 	}
 
 
-	public void setEmp_salary(String emp_salary) {
+	public void setEmp_salary(double emp_salary) {
 		this.emp_salary = emp_salary;
 	}
 
