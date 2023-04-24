@@ -1,6 +1,7 @@
 package com.sample.Employee.services.impl;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.sample.Employee.web.*;
 import com.sample.Employee.beans.EmployeeDetails;
 import com.sample.Employee.repository.EmployeeDetailsRepository;
+import com.sample.Employee.repository.EmployeeRepositoryCustom;
 import com.sample.Employee.service.EmployeeDetailsService;
 
 @Service
@@ -16,6 +18,18 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService {
 
 	@Autowired
 	EmployeeDetailsRepository employeeDetailsRepository;
+	
+	@Autowired
+	EmployeeRepositoryCustom employeeRepositoryCustom;
+	
+	@Override
+	public List<EmployeeDetails> searchEmployessUsingCreiteria(
+			String emp_name, String emp_department, String emp_designation, Double emp_salary, String current_project, Integer experience
+			) {
+		
+		return employeeRepositoryCustom.searchEmployee(emp_name, emp_department, emp_designation, emp_salary, current_project, experience);
+		
+	}
 
 	@Override
 	public EmployeeDetails getEmployeeDetails(String empId) {
@@ -66,8 +80,14 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService {
 		return employeeDetailsRepository.save(employeeDetail);
 		
 		}
+
 	
 	
+	
+
+	
+
+
 }
 
 
