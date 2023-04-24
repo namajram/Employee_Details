@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.sample.Employee.web.*;
@@ -23,11 +29,10 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService {
 	EmployeeRepositoryCustom employeeRepositoryCustom;
 	
 	@Override
-	public List<EmployeeDetails> searchEmployessUsingCreiteria(
-			String emp_name, String emp_department, String emp_designation, Double emp_salary, String current_project, Integer experience
-			) {
+	public List<EmployeeDetails> searchEmployessUsingCreiteria(String employeeName, String employeeDepartment, String employeeDesignation, Double employeeSalary,
+			String currentProject, Integer experience) {
 		
-		return employeeRepositoryCustom.searchEmployee(emp_name, emp_department, emp_designation, emp_salary, current_project, experience);
+		return employeeRepositoryCustom.searchEmployee(employeeName, employeeDepartment, employeeDesignation, employeeSalary, currentProject, experience);
 		
 	}
 
@@ -81,7 +86,20 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService {
 		
 		}
 
-	
+public List<EmployeeDetails> retrieveEmployeesPagedAndSorted(int pageNo, int pageSize, String sortField, String sortDirection) {
+		
+		Sort sort = sortDirection.equalsIgnoreCase("asc") ? Sort.by(sortField).ascending() :
+		     Sort.by(sortField).descending();
+		Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+		Page<EmployeeDetails> employees = employeeDetailsRepository.findAll(pageable);
+		return employees.getContent();
+	}
+
+@Override
+public List<EmployeeDetails> getAllEmployeeDetails() {
+	List<EmployeeDetails> findAllEmployeeDetails = employeeDetailsRepository.findAll();
+	return findAllEmployeeDetails;
+}
 	
 	
 

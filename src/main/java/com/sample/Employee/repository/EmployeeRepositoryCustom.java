@@ -21,7 +21,8 @@ public class EmployeeRepositoryCustom {
 	  @Autowired
 	EntityManager em;
 	
-public List<EmployeeDetails> searchEmployee(String emp_name, String emp_department, String emp_designation, Double emp_salary, String current_project, Integer experience)
+public List<EmployeeDetails> searchEmployee(String employeeName, String employeeDepartment, String employeeDesignation, Double employeeSalary, String currentProject, Integer experience
+)
 	
 {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -30,21 +31,22 @@ public List<EmployeeDetails> searchEmployee(String emp_name, String emp_departme
 	    Root<EmployeeDetails> employee = cq.from(EmployeeDetails.class);
 	    List<Predicate> predicates = new ArrayList<>();
 	    
-	    if (emp_name != null) {
-	        predicates.add(cb.equal(employee.get("emp_name"), emp_name));
+	    if (employeeName != null) {
+	        predicates.add(cb.equal(employee.get("employeeName"), employeeName));
 	    }
-	    if (emp_department != null) {
-	        predicates.add(cb.equal(employee.get("emp_department"), emp_department));
+	    if (employeeDepartment != null) {
+	        predicates.add(cb.equal(employee.get("employeeDepartment"), employeeDepartment));
 	    }
-	    if (emp_salary != null) {
-	        predicates.add(cb.equal(employee.get("emp_salary"), emp_salary));
+	    if (employeeSalary != null) {
+	        predicates.add(cb.equal(employee.get("employeeSalary"), employeeSalary));
 	    }
-	    if (current_project != null) {
-	        predicates.add(cb.equal(employee.get("current_project"), current_project));
+	    if (currentProject != null) {
+	        predicates.add(cb.equal(employee.get("currentProject"), currentProject));
 	    }
 	    if (experience != null) {
 	        predicates.add(cb.equal(employee.get("experience"), experience));
 	    }
+
 	    
 	    cq.where(predicates.toArray(new Predicate[predicates.size()]));
 
