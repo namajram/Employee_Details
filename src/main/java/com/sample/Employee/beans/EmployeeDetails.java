@@ -41,10 +41,10 @@ public class EmployeeDetails {
 	public EmployeeDetails() {
 		
 	}
-	
-	
-	public EmployeeDetails(long employeeId, String employeeName, String employeeDepartment, String employeeDesignation, double employeeSalary,
-			String currentProject, int experience) {
+
+
+	public EmployeeDetails(long employeeId, String employeeName, String employeeDepartment, String employeeDesignation,
+			double employeeSalary, String currentProject, int experience) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
@@ -56,63 +56,63 @@ public class EmployeeDetails {
 	}
 
 
-	public long getEmp_id() {
+	public long getEmployeeId() {
 		return employeeId;
 	}
 
 
-	public void setEmp_id(long emp_id) {
-		this.employeeId = emp_id;
+	public void setEmployeeId(long employeeId) {
+		this.employeeId = employeeId;
 	}
 
 
-	public String getEmp_name() {
+	public String getEmployeeName() {
 		return employeeName;
 	}
 
 
-	public void setEmp_name(String emp_name) {
-		this.employeeName = emp_name;
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 
 
-	public String getEmp_department() {
+	public String getEmployeeDepartment() {
 		return employeeDepartment;
 	}
 
 
-	public void setEmp_department(String emp_department) {
-		this.employeeDepartment = emp_department;
+	public void setEmployeeDepartment(String employeeDepartment) {
+		this.employeeDepartment = employeeDepartment;
 	}
 
 
-	public String getEmp_designation() {
+	public String getEmployeeDesignation() {
 		return employeeDesignation;
 	}
 
 
-	public void setEmp_designation(String emp_designation) {
-		this.employeeDesignation = emp_designation;
+	public void setEmployeeDesignation(String employeeDesignation) {
+		this.employeeDesignation = employeeDesignation;
 	}
 
 
-	public double getEmp_salary() {
+	public double getEmployeeSalary() {
 		return employeeSalary;
 	}
 
 
-	public void setEmp_salary(double emp_salary) {
-		this.employeeSalary = emp_salary;
+	public void setEmployeeSalary(double employeeSalary) {
+		this.employeeSalary = employeeSalary;
 	}
 
 
-	public String getCurrent_project() {
+	public String getCurrentProject() {
 		return currentProject;
 	}
 
 
-	public void setCurrent_project(String current_project) {
-		this.currentProject = current_project;
+	public void setCurrentProject(String currentProject) {
+		this.currentProject = currentProject;
 	}
 
 
@@ -128,10 +128,12 @@ public class EmployeeDetails {
 
 	@Override
 	public String toString() {
-		return "EmployeeData [emp_id=" + employeeId + ", emp_name=" + employeeName + ", emp_department=" + employeeDepartment
-				+ ", emp_designation=" + employeeDesignation + ", emp_salary=" + employeeSalary + ", current_project="
-				+ currentProject + ", experience=" + experience + "]";
+		return "EmployeeDetails [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employeeDepartment="
+				+ employeeDepartment + ", employeeDesignation=" + employeeDesignation + ", employeeSalary="
+				+ employeeSalary + ", currentProject=" + currentProject + ", experience=" + experience + "]";
 	}
-
+	
+	
+	
 	
 }

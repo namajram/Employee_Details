@@ -33,64 +33,100 @@ public class UpdateEmployeeDetail {
 	private int experience;
 
 
-	public String getEmp_id() {
+
+	public UpdateEmployeeDetail() {}
+
+
+
+	public UpdateEmployeeDetail(String employeeId,
+			@NotEmpty(message = "The employee name is required.") @NotNull(message = "The employee name is required.") @Size(min = 3, message = "") String employeeName,
+			@NotEmpty(message = "The employee department is required.") @NotNull(message = "The employee department is required.") String employeeDepartment,
+			@NotEmpty(message = "The employee designation is required.") @NotNull(message = "The employee designation is required.") String employeeDesignation,
+			@NotNull(message = "The employee salary is required.") double employeeSalary,
+			@NotEmpty(message = "The employee current project is required.") @NotNull(message = "The employee current project is required.") String currentProject,
+			int experience) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeDepartment = employeeDepartment;
+		this.employeeDesignation = employeeDesignation;
+		this.employeeSalary = employeeSalary;
+		this.currentProject = currentProject;
+		this.experience = experience;
+	}
+
+
+
+	public String getEmployeeId() {
 		return employeeId;
 	}
 
 
-	public void setEmp_id(String emp_id) {
-		this.employeeId = emp_id;
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
 
 
-	public String getEmp_name() {
+
+	public String getEmployeeName() {
 		return employeeName;
 	}
 
 
-	public void setEmp_name(String emp_name) {
-		this.employeeName = emp_name;
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 
 
-	public String getEmp_department() {
+
+	public String getEmployeeDepartment() {
 		return employeeDepartment;
 	}
 
 
-	public void setEmp_department(String emp_department) {
-		this.employeeDepartment = emp_department;
+
+	public void setEmployeeDepartment(String employeeDepartment) {
+		this.employeeDepartment = employeeDepartment;
 	}
 
 
-	public String getEmp_designation() {
+
+	public String getEmployeeDesignation() {
 		return employeeDesignation;
 	}
 
 
-	public void setEmp_designation(String emp_designation) {
-		this.employeeDesignation = emp_designation;
+
+	public void setEmployeeDesignation(String employeeDesignation) {
+		this.employeeDesignation = employeeDesignation;
 	}
 
 
-	public double getEmp_salary() {
+
+	public double getEmployeeSalary() {
 		return employeeSalary;
 	}
 
 
-	public void setEmp_salary(double emp_salary) {
-		this.employeeSalary = emp_salary;
+
+	public void setEmployeeSalary(double employeeSalary) {
+		this.employeeSalary = employeeSalary;
 	}
 
 
-	public String getCurrent_project() {
+
+	public String getCurrentProject() {
 		return currentProject;
 	}
 
 
-	public void setCurrent_project(String current_project) {
-		this.currentProject = current_project;
+
+	public void setCurrentProject(String currentProject) {
+		this.currentProject = currentProject;
 	}
+
 
 
 	public int getExperience() {
@@ -98,37 +134,21 @@ public class UpdateEmployeeDetail {
 	}
 
 
+
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
 
 
-	public UpdateEmployeeDetail() {}
-	
-	public UpdateEmployeeDetail(String emp_id,
-			@NotEmpty(message = "The employee name is required.") @NotNull(message = "The employee name is required.") String emp_name,
-			@NotEmpty(message = "The employee department is required.") @NotNull(message = "The employee department is required.") String emp_department,
-			@NotEmpty(message = "The employee designation is required.") @NotNull(message = "The employee designation is required.") String emp_designation,
-			@NotEmpty(message = "The employee salary is required.") @NotNull(message = "The employee salary is required.") double emp_salary,
-			@NotEmpty(message = "The employee current project is required.") @NotNull(message = "The employee current project is required.") String current_project,
-			int experience) {
-		super();
-		this.employeeId = emp_id;
-		this.employeeName = emp_name;
-		this.employeeDepartment = emp_department;
-		this.employeeDesignation = emp_designation;
-		this.employeeSalary = emp_salary;
-		this.currentProject = current_project;
-		this.experience = experience;
-	}
-
 
 	@Override
 	public String toString() {
-		return "EmployeeDataUpdate [emp_id=" + employeeId + ", emp_name=" + employeeName + ", emp_department=" + employeeDepartment
-				+ ", emp_designation=" + employeeDesignation + ", emp_salary=" + employeeSalary + ", current_project="
-				+ currentProject + ", experience=" + experience + "]";
+		return "UpdateEmployeeDetail [employeeId=" + employeeId + ", employeeName=" + employeeName
+				+ ", employeeDepartment=" + employeeDepartment + ", employeeDesignation=" + employeeDesignation
+				+ ", employeeSalary=" + employeeSalary + ", currentProject=" + currentProject + ", experience="
+				+ experience + "]";
 	}
-
+	
+	
 	
 }
