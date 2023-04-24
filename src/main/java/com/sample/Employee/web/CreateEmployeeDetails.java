@@ -25,7 +25,6 @@ public class CreateEmployeeDetails {
 	@NotNull(message = "The employee designation is required.")
 	private String employeeDesignation;
 	
-	@NotEmpty(message = "The employee salary is required.")
 	@NotNull(message = "The employee salary is required.")
 	private double employeeSalary;
 	
