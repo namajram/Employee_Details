@@ -1,6 +1,8 @@
 package com.sample.Employee.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,11 +36,11 @@ public class EmployeeDetailsController {
 			@RequestParam(required = false) String currentProject,
 			@RequestParam(required = false) Integer experience) {
 
-		java.util.List<EmployeeDetails> searchEmployessUsingCreiteria = employeeDetailsService
-				.searchEmployessUsingCreiteria(employeeName, employeeDepartment, employeeDesignation, employeeSalary, currentProject,
+		java.util.List<EmployeeDetails> searchEmployess = employeeDetailsService
+				.getSearchAndSortEmployess(employeeName, employeeDepartment, employeeDesignation, employeeSalary, currentProject,
 						experience);
 
-		return new ResponseEntity(searchEmployessUsingCreiteria, HttpStatus.OK);
+		return new ResponseEntity(searchEmployess, HttpStatus.OK);
 	}
 	
 	
@@ -51,9 +53,9 @@ public class EmployeeDetailsController {
 	
 	
 	@GetMapping("employee")
-	public java.util.List<EmployeeDetails> getALLEmployeeDetails(){
-		 java.util.List<EmployeeDetails> allEmployeeDetails = employeeDetailsService.getAllEmployeeDetails();
-		return allEmployeeDetails;
+	public ResponseEntity<EmployeeDetails> getALLEmployeeDetails(){
+		 List<EmployeeDetails> allEmployeeDetails = employeeDetailsService.getAllEmployeeDetails();
+		return new ResponseEntity(allEmployeeDetails, HttpStatus.OK);
 		}
 	
 

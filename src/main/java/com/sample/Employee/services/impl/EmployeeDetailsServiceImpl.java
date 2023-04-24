@@ -30,8 +30,7 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService {
 	
 	
 	
-	@Override
-	public List<EmployeeDetails> searchEmployessUsingCreiteria(String employeeName, String employeeDepartment, String employeeDesignation, Double employeeSalary,
+	public List<EmployeeDetails> getSearchAndSortEmployess(String employeeName, String employeeDepartment, String employeeDesignation, Double employeeSalary,
 			String currentProject, Integer experience) {
 		
 		return employeeRepositoryCustom.searchEmployee(employeeName, employeeDepartment, employeeDesignation, employeeSalary, currentProject, experience);
@@ -74,11 +73,12 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService {
 	@Override
 	public EmployeeDetails upadteEmployeeDetail(UpdateEmployeeDetail upadteEmployeeDetail) {
 	 Optional<EmployeeDetails> employeeDetails = employeeDetailsRepository.findById(upadteEmployeeDetail.getEmp_id());
-	 EmployeeDetails employeeDetail = employeeDetails.get();
+	 
 		if (employeeDetails.isEmpty()) {
 			throw new RuntimeException("(Employee Id cannot be find");
 			
 		}
+		EmployeeDetails employeeDetail = employeeDetails.get();
 		employeeDetail.setCurrent_project(upadteEmployeeDetail.getCurrent_project());
 		employeeDetail.setEmp_department(upadteEmployeeDetail.getEmp_department());
 		employeeDetail.setEmp_designation(upadteEmployeeDetail.getEmp_designation());
